@@ -5,12 +5,12 @@ namespace _21Point
 {
     class Program
     {
-        private int i;
-        private int n = 0;
-        private int summ = 0;
-        private int summus = 0;
-        private int c = 0;
-        private int[] cards =
+        private int i; //Создание переменной 
+        private int n = 0; //Создание переменной 
+        private int summ = 0; //Создание переменной 
+        private int summus = 0; //Создание переменной 
+        private int c = 0; //Создание переменной 
+        private int[] cards = 
         {
             2,2,2,2,
             3,3,3,3,
@@ -25,9 +25,9 @@ namespace _21Point
             10,10,10,10,
             10,10,10,10,
             11,11,11,11
-        };
+        }; //Создание карт
         private int[] compcards = new int[5];
-        private int[] usercards = new int[5];
+        private int[] usercards = new int[5]; //создание массива
         private int game()
         {
             int[] bcards = new int[10];
@@ -35,8 +35,8 @@ namespace _21Point
             {
                 bcards[i] = 0;
             }
-
-            Console.WriteLine("Сдаю карты");
+            
+            Console.WriteLine("Сдаю карты"); // Создание раздачи карт в рандоме
             Random rand = new Random();
             for (i = 0; i < 2; i++)
             {
@@ -46,7 +46,7 @@ namespace _21Point
                 {
                     Console.WriteLine("У меня 21 очко, я выиграл");
                     break;
-                }
+                } // Победа при 21
 
                 if (compcards[i] == n)
                 {
@@ -59,7 +59,7 @@ namespace _21Point
             }
             if (compcards[0] + compcards[1] >= 18)
             {
-                Console.WriteLine("Мне хватит");
+                Console.WriteLine("Мне хватит"); // Окончание цикла выдачи для первого игрока
             }
             else
             {
@@ -88,7 +88,7 @@ namespace _21Point
                         {
                             Console.WriteLine("Мне хватит");
                             break;
-                        }
+                        } //Условия раздачи
                     }
                 }
             }
@@ -122,8 +122,8 @@ namespace _21Point
                 Console.WriteLine("Ещё?");
                 answer2 = Console.ReadLine();
                 if (answer2 == "нет") goto L5;
-                
-                if (answer2 == "да")
+
+                if (answer2 == "да") //выбор и переход на другого игрока
                 {
 
                     n = rand.Next(2, 11);
@@ -150,6 +150,7 @@ namespace _21Point
                 }
                 if (c == 5) { break; }
             }
+        //использование карт 
         L5:
             Console.Write("Карты противника:");
             for (i = 0; i < 5; i++)
@@ -181,14 +182,14 @@ namespace _21Point
             }
         L4: Console.WriteLine("Конец игры");
             return 0;
-        }
+        } // окончание игры при условии
         static void Main(string[] args)
         {
-            
+
             Program ex = new Program();
             ex.game();
             Console.ReadKey();
         }
-        
+
     }
 }
